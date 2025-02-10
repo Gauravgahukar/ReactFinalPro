@@ -23,7 +23,7 @@ function Dairy() {
 
     let finalItems = filteredItems.map((item, index) => (
       <li key={index}>
-        {item.name}- ₹ {item.price}
+        {item.name}- ₹ {item.price} <img src={item.image} alt=""/>
         <button onClick={() => dispatch(addToCart(item))}>Add to Cart</button>
       </li>
     ));
@@ -32,8 +32,7 @@ function Dairy() {
   return (
     <>
      <div className='container'>
-      <h1>Welcome to the Dairy Items.</h1>
-      <img src="dairy.png" alt="dairy" className='items' />
+      <h1>Dairy Items</h1>
       <div>
         <label> <input type="checkbox" onChange={() => applyFilter('low')} /> 0 - 100 </label>
         <label> <input type="checkbox" onChange={() => applyFilter('mid')} /> 101 - 200 </label>

@@ -31,8 +31,7 @@ function Veg() {
 
   return (
     <div className="container">
-      <h1>Welcome to the Veg Items.</h1>
-      <img src="vegetables.jpg" alt="vegetable" className='items' />
+      <h1>Veg Items</h1>
       <div>
         <label> <input type="checkbox" onChange={() => applyFilter('low')} /> 0 - 100 </label>
         <label> <input type="checkbox" onChange={() => applyFilter('mid')} /> 101 - 200 </label>
@@ -44,3 +43,4 @@ function Veg() {
 }
 
 export default Veg;
+ 

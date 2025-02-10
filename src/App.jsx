@@ -14,6 +14,9 @@ import SignIn from './SignIn.jsx';
 import { logout } from './store.js'; 
 import { useEffect } from 'react';
 
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+
 function App() {
 
   const cart = useSelector(state => state.cart || []);
@@ -36,16 +39,17 @@ function App() {
   return (
     <>
       <BrowserRouter>
-
         <div className='nav'>
-          <Link to='/home' className='links'>Home</Link>
-          <Link to='/veg' className='links'>Veg-Items</Link>
-          <Link to='/nonVeg' className='links'>NonVeg-Items</Link>
-          <Link to='/dairy' className='links'>Dairy-Items</Link>
-          <Link to='/cart' className='links'>Cart <span className='cart-items'>{totalItems}</span></Link>
-          <Link to='/orders' className='links'>Orders</Link>
-          <Link to='/aboutUs' className='links'>AboutUs</Link>
-          <Link to='/contactUs' className='links'>ContactUs</Link>
+           <span className="cropix-text">Cropix<span style={{fontSize:"0.73cm"}}>.in</span></span>
+          <div className='bor'>
+          <Link to='/home' className='links'><i class="fa-solid fa-house"></i>Home</Link>
+          <Link to='/veg' className='links'><i class="fa-solid fa-pepper-hot"></i>Veg-Items</Link>
+          <Link to='/nonVeg' className='links'><i class="fa-solid fa-drumstick-bite"></i>NonVeg-Items</Link>
+          <Link to='/dairy' className='links'><i class="fa-solid fa-cow"></i>Dairy-Items</Link>
+          <Link to='/cart' className='links'><i class="fa-solid fa-cart-shopping"></i>Cart <span className='cart-items'>{totalItems}</span></Link>
+          <Link to='/orders' className='links'><i class="fa-brands fa-shopify"></i>Orders</Link>
+          <Link to='/aboutUs' className='links'><i class="fa-solid fa-circle-info"></i>AboutUs</Link>
+          <Link to='/contactUs' className='links'><i class="fa-solid fa-address-card"></i>ContactUs</Link>
           {
             isAuthenticated ? (
               <div>
@@ -53,13 +57,15 @@ function App() {
                 <button className='user-great' onClick={() => dispatch(logout())}>Logout</button>
               </div>
             ) : (
-              <Link to="/login" className='links'>Sign In</Link>
+              <Link to="/login" className='links'><i class="fa-solid fa-user"></i>Sign In</Link>
             )
           }
+          </div>
         </div>
 
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home/>}/>
+          <Route path="/home" element={<Home />}/>
           <Route path="/veg" element={<Veg />} />
           <Route path="/nonVeg" element={<NonVeg />} />
           <Route path="/cart" element={<Cart />} />

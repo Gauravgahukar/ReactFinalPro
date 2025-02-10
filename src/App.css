@@ -12,7 +12,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1f185c;
+  height: 2cm;
+  background-color: #1e73da;
   padding: 10px 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
@@ -22,19 +23,25 @@ body {
 .links {
   color: #fff;
   text-decoration: none;
-  margin: 0 15px;
+  margin: 13px;
   font-size: 16px;
   font-weight: 500;
+  margin-inline-start: 0.5cm;
   transition: all 0.3s ease-in-out;
 } 
 .links:hover {
-  background-color: #0056a6;
-  padding: 8px 15px;
+  background-color: #49cbe1;
+  padding-top: 5px;
+  padding: 10px;
   border-radius: 5px;
   font-weight: bold;
   transform: scale(1.05);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 } 
+.bor{
+  margin-left: 12%;
+}
+
 .active {
   background-color: #0056a6;
   border-radius: 5px;
@@ -55,9 +62,11 @@ body {
 } 
 .container h1 {
   font-size: 2.5rem;
-  color: #12ebe7;
+  color: #3fe05f;
   margin-bottom: 20px;
   font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.5cm;
 }
 h1 {
   text-align: center;
@@ -389,8 +398,7 @@ label {
   margin-right: 10px;
   cursor: pointer;
 }
-.not-found  {
-  
+.not-found  { 
   text-align: center;
   color: #150b0b;
   /* font-size: 3rem; */
@@ -405,4 +413,16 @@ label {
   margin-left: 43%;
   background-color: #19e355;
   color: #150b0b;
+}
+
+/* Cropix */
+.cropix-text {
+  position: absolute;
+  left: 10px;  /* Adjust this value to move it further left */
+  top: 50%;    /* Center vertically */
+  margin-left: 1px;
+  font-size: 40px;
+  transform: translateY(-50%); /* Aligns text perfectly */
+  color: rgb(255, 115, 15);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

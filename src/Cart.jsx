@@ -14,8 +14,8 @@ function Cart() {
   const cartItem = cartObject.map((item, index) =>
     <li key={index}>
       {item.name} - ₹ {item.price}
-      <button onClick={() => dispatch(addToCart(item))}>Add to Cart</button>
-
+      <button onClick={() => dispatch(addToCart(item))}>OK</button> 
+                                                   {/* Add to Cart */}
 
       <button onClick={() => dispatch(increament(item))}> + </button>
       <button onClick={() => dispatch(decreament(item))}> - </button>
@@ -65,19 +65,28 @@ function Cart() {
   const finalAmount = totalPrice - (discAmount + couponDiscAmt);
 
   const handleCouponPercent = () => {
-    switch (couponCode.toUpperCase()) {
-      case "Gaurav@10": setCouponCodePercent(10);
+    const code = couponCode.toUpperCase();
+    let discount = 0;
+  
+    switch (code) {
+      case "Ratan@10":
+        discount = 10;
         break;
-      case "Gaurav@20": setCouponCodePercent(20);
+      case "Yakub@20":
+        discount = 20;
         break;
-      case "Gaurav@30": setCouponCodePercent(30);
+      case "Shrinivas@30":
+        discount = 30;
         break;
-      case "Gaurav@40": setCouponCodePercent(40);
-        break;
-      default: alert("Invalid Coupon Code!");
-        break;
+      default:
+        alert("Invalid Coupon Code!");
+        discount = 0;
     }
-  }
+  
+    setCouponCodePercent(discount);
+    setShowCouponDisc(discount > 0); // Only show discount if valid coupon
+  };
+
 
 
   // ---------purachase all button
@@ -123,7 +132,7 @@ function Cart() {
             </div>
           )}
           
-          <button onClick={() => { setDiscPercent(10), setShowDisc(true) }}>Apply 10% Discount </button>
+          <button onClick={() => { setDiscPercent(10), setShowDisc(true) }}>Apply 10% Discount</button>
           <button onClick={() => { setDiscPercent(20), setShowDisc(true) }}>Apply 20% Discount</button>
           <button onClick={() => { setDiscPercent(30), setShowDisc(true) }}>Apply 30% Discount</button>
           {showCouponDisc && couponCodePercent > 0 && (
@@ -142,14 +151,14 @@ function Cart() {
             value={couponCode}
             onChange={(e) => setCouponCode(e.target.value)}
           />
-          <button onClick={() => { handleCouponPercent(), setShowCouponDisc(true) }}>Apply Coupon</button>
-            <button onClick={handlePurchaseDetails}>Purchase All</button>
+          <button onClick={() => {handleCouponPercent(),setShowCouponDisc(true)}}>Apply Coupon</button>
+          <button onClick={handlePurchaseDetails}>Purchase All</button>
         </div>
         :
         (<div className="empty-cart">
           <h1>Your cart is empty.</h1>
         </div>)
-      }
+      } 
     </>
   )
 }

@@ -28,15 +28,14 @@ function NonVeg() {
   // Render filtered items
   const finalItems = filteredItems.map((item, index) => (
     <li key={index}>
-      {item.name} - ₹ {item.price}
+      {item.name} - ₹ {item.price} <img src={item.image} alt=""/>
       <button onClick={() => dispatch(addToCart(item))}>Add to Cart</button>
     </li>
   ));
 
   return (
     <div className="container">
-      <h1>Welcome to the Non-Veg Items</h1>
-      <img src="nonveg.jpg" alt="nonveg" className='items' />
+      <h1>Non-Veg Items</h1>
       <div className="filter-options">
         <label> <input type="checkbox" onChange={() => applyFilter("low")} /> 0 - 400 </label>
         <label> <input type="checkbox" onChange={() => applyFilter("mid")} /> 400 - 800 </label>

@@ -32,7 +32,7 @@ function Orders() {
           <h1>No orders placed yet.</h1>
         </div>
       )}
-      <button className="button">Delete Order</button>
+      {/* <button className="button">Delete Order</button> */}
     </>
   );
 }
